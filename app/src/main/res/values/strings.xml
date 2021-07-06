@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Mareu</string>
+
+    <string-array name="Salle_Maréu">
+        <item>Salle 1</item>
+        <item>Salle 2</item>
+        <item>Salle 3</item>
+        <item>Salle 4</item>
+        <item>Salle 5</item>
+        <item>Salle 6</item>
+        <item>Salle 7</item>
+        <item>Salle 8</item>
+        <item>Salle 9</item>
+        <item>Salle 10</item>
+    </string-array>
+
+    <string-array name="Participants">
+        <item>Shin</item>
+        <item>Gatsu</item>
+        <item>Luffy</item>
+        <item>Emma</item>
+        <item>Jinwoo </item>
+        <item>Saïtama</item>
+    </string-array>
+
+
+    <integer-array name="color">
+        <item>@drawable/ic_circle_blue</item>
+        <item>@drawable/ic_circle_green</item>
+        <item>@drawable/ic_circle_pink</item>
+        <item>@drawable/ic_circle_yellow</item>
+        <item>@drawable/ic_circle</item>
+    </integer-array>
+
+
+</resources>
+
