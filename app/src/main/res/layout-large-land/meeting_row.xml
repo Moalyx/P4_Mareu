@@ -18,66 +18,44 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/ic_circle" />
 
-    <TextView
-        android:id="@+id/room"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:textColor="#000000"
-        android:textSize="@dimen/hour"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/circle"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="room" />
 
     <TextView
         android:id="@+id/meeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:textColor="#000000"
-        android:textSize="@dimen/meeting_subject"
+        android:textSize="@dimen/meeting"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/hour"
+        app:layout_constraintStart_toEndOf="@id/circle"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="subject" />
 
-    <TextView
-        android:id="@+id/hour"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:textColor="#000000"
-        android:textSize="@dimen/hour"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/room"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="hour" />
+
 
     <TextView
         android:id="@+id/participants"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:ellipsize="end"
         android:singleLine="true"
         android:textSize="@dimen/participants"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/circle"
+        app:layout_constraintEnd_toStartOf="@id/delete_button"
         tools:text="participants" />
 
     <ImageButton
-        android:id="@+id/delete_button"
-        android:layout_width="@dimen/delete_width"
-        android:layout_height="@dimen/delete_height"
-        android:layout_marginEnd="100dp"
-        android:background="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-         />
+            android:id="@+id/delete_button"
+            android:layout_width="@dimen/delete_width"
+            android:layout_height="@dimen/delete_height"
+            android:layout_marginEnd="16dp"
+            android:background="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_delete_100" />
 
     <ImageView
         android:layout_width="match_parent"

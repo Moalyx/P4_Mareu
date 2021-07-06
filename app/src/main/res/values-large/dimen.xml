@@ -1,7 +1,6 @@
 <resources>
     <!-- TextViews -->
-    <dimen name="meeting_subject">35sp</dimen>
-    <dimen name="hour">35sp</dimen>
+    <dimen name="meeting">35sp</dimen>
     <dimen name="participants">30sp</dimen>
     <!-- Images -->
     <dimen name="circle_height">130dp</dimen>
