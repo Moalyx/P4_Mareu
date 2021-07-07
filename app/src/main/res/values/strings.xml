@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Mareu</string>
 
+    <string name="list_of_participants">liste des participants</string>
+    <string name="ok">ok</string>
+    <string name="delete">Annuler</string>
+    <string name="filter">filtrer</string>
+
     <string-array name="Salle_Maréu">
         <item>Salle 1</item>
         <item>Salle 2</item>
@@ -15,14 +20,13 @@
     </string-array>
 
     <string-array name="Participants">
-        <item>Shin</item>
-        <item>Gatsu</item>
-        <item>Luffy</item>
-        <item>Emma</item>
-        <item>Jinwoo </item>
-        <item>Saïtama</item>
+        <item>Shin@gmail.com</item>
+        <item>Gatsu@gmail.com</item>
+        <item>Luffy@gmail.com</item>
+        <item>Emma@gmail.com</item>
+        <item>Jinwoo@gmail.com</item>
+        <item>Saïtama@gmail.com</item>
     </string-array>
-
 
     <integer-array name="color">
         <item>@drawable/ic_circle_blue</item>
@@ -31,7 +35,6 @@
         <item>@drawable/ic_circle_yellow</item>
         <item>@drawable/ic_circle</item>
     </integer-array>
-
 
 </resources>
 

@@ -22,12 +22,11 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    MeetingApiService apiservice;
+    MeetingApiService apiService;
     List<Meeting> meetings;
     RecyclerView recyclerView;
     MyMeetingRecyclerViewAdapter myMeetingRecyclerViewAdapter;
     FloatingActionButton addMeetingButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,22 +34,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         addMeetingButton = findViewById(R.id.faButton);
-        apiservice = DI.getNeighbourApiService();
-        meetings = apiservice.getMeetings();
+        apiService = DI.getNeighbourApiService();
+        meetings = apiService.getMeetings();
         recyclerView = findViewById(R.id.meeting_recyclerview);
         myMeetingRecyclerViewAdapter = new MyMeetingRecyclerViewAdapter(meetings);
         configureToolbar();
         recyclerView.setAdapter(myMeetingRecyclerViewAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         setAddMeetingButton();
-
     }
 
     public void setAddMeetingButton() {
         addMeetingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Add_Reu_Activity.class);
+                Intent intent = new Intent(MainActivity.this, AddReuActivity.class);
                 startActivity(intent);
             }
         });
@@ -64,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Toast.makeText(this, "filtrer", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.filter, Toast.LENGTH_SHORT).show();
         return true;
     }
 

@@ -13,12 +13,7 @@ public class ColorSpinnerAdapter extends BaseAdapter {
     private int[] colorList;
 
 
-
-
-
-
-
-    public ColorSpinnerAdapter(Context context, int[] colorList){
+    public ColorSpinnerAdapter(Context context, int[] colorList) {
         this.context = context;
         this.colorList = colorList;
     }
@@ -39,11 +34,11 @@ public class ColorSpinnerAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int position, View view, ViewGroup viewGroup) {
         View rootView = LayoutInflater.from(context)
-                .inflate(R.layout.item_color,viewGroup , false);
+                .inflate(R.layout.item_color, viewGroup, false);
         ImageView image = rootView.findViewById(R.id.colorItem);
-        image.setImageResource(colorList[i]);
+        image.setImageResource(colorList[position]);
         return rootView;
     }
 }

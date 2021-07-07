@@ -1,7 +1,5 @@
 package com.tuto.mareu.model;
 
-import android.widget.Spinner;
-
 import java.util.List;
 import java.util.Objects;
 
@@ -10,25 +8,19 @@ public class Meeting {
 
     private String room;
     private String subject;
-    private List<Participant> participants;
+    private List<String> participants;
     private String time;
     private String date;
     private int image;
 
-    public Meeting(String s1, String string, String s, String toString, Spinner colorSpinner) {
-    }
 
-    public Meeting(String room, String subject, List<Participant> participants, String time, String date, int image) {
-
+    public Meeting(String room, String subject, List<String> participants, String time, String date, int image) {
         this.room = room;
         this.subject = subject;
         this.participants = participants;
         this.time = time;
         this.date = date;
         this.image = image;
-    }
-
-    public Meeting(String room, String subject, String toString, String time, String date, Spinner colorSpinner) {
     }
 
 
@@ -48,11 +40,11 @@ public class Meeting {
         this.subject = subject;
     }
 
-    public List<Participant> getParticipants() {
+    public List<String> getParticipants() {
         return participants;
     }
 
-    public void setParticipants(List<Participant> participants) {
+    public void setParticipants(List<String> participants) {
         this.participants = participants;
     }
 
@@ -90,7 +82,7 @@ public class Meeting {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Meeting meeting = (Meeting) o;
-        return  room.equals(meeting.room) &&
+        return room.equals(meeting.room) &&
                 subject.equals(meeting.subject) &&
                 participants.equals(meeting.participants) &&
                 time.equals(meeting.time) &&
