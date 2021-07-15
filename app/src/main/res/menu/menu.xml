@@ -5,13 +5,21 @@
     >
 
     <item
-        android:id="@+id/menu_activity_filter"
+        android:id="@+id/menu_activity_filter_room_filter"
         app:titleTextColor="#FFFFFF"
-        android:icon="@drawable/ic_baseline_filter_list_24"
+        android:icon="@drawable/ic_action_filtre_test"
         app:showAsAction="always"
         android:title="filtrer"
         tools:ignore="AppCompatResource">
+    </item>
 
+    <item
+        android:id="@+id/menu_activity_date_filter"
+        app:titleTextColor="#FFFFFF"
+        android:icon="@drawable/ic_baseline_access_time_24"
+        app:showAsAction="always"
+        android:title="filtrer"
+        tools:ignore="AppCompatResource">
     </item>
 
 </menu>

@@ -131,36 +131,7 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
 
     }
 
-    public int selectedColor (int position){
-        colorMeeting = (int) colorSpinner.getItemAtPosition(position);
-        switch (position){
 
-            case 0 :
-                colorMeeting = (R.drawable.ic_circle);
-                break;
-
-            case 1 :
-                colorMeeting = (R.drawable.ic_circle_blue);
-                break;
-
-            case 2 :
-                colorMeeting = (R.drawable.ic_circle_green);
-                break;
-
-            case 3 :
-                colorMeeting = (R.drawable.ic_circle_pink);
-                break;
-
-            case 4 :
-                colorMeeting = (R.drawable.ic_circle_yellow);
-                break;
-
-            default:
-                break;
-        }
-
-        return position;
-    }
 
     private void configureDatePicker() {
         Calendar cal = Calendar.getInstance();
@@ -183,7 +154,6 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
                 datePickerDialog.show();
             }
         });
-
     }
 
     private void configureTimePicker() {
@@ -204,24 +174,52 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
                 timePickerDialog.show();
             }
         });
+    }
 
+    public int selectedColor (int position){
+        colorMeeting = (int) colorSpinner.getSelectedItemPosition();
+        switch (colorSpinner.getSelectedItemPosition()) {
+
+            case 0:
+                colorMeeting = (R.drawable.ic_circle_blue);
+                break;
+
+            case 1:
+                colorMeeting = (R.drawable.ic_circle_green);
+                break;
+
+            case 2:
+                colorMeeting = (R.drawable.ic_circle_pink);
+                break;
+
+            case 3:
+                colorMeeting = (R.drawable.ic_circle_yellow);
+                break;
+
+            case 4:
+                colorMeeting = (R.drawable.ic_circle);
+                break;
+
+            default:
+                break;
+        }
+        return colorMeeting;
     }
 
     private void addMeeting() {
 
         //int positionColor = colorMeeting;
+        saveButton.setEnabled(true);
         selectedColor(colorMeeting);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 String room = roomSpinner.getSelectedItem().toString();
                 String subject = textInputSubject.getEditText().getText().toString();
                 List<String> participants = participantList;
                 String time = timeButton.getText().toString();
                 String date = dateButton.getText().toString();
-                int color = colorMeeting;
+                int color = selectedColor(colorSpinner.getSelectedItemPosition());
 
                 Meeting meeting = new Meeting(room, subject, participants, time, date, color);
 //                Meeting meeting = new Meeting(
@@ -231,7 +229,7 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
 //                        timeButton.getText().toString(),
 //                        dateButton.getText().toString(),
 ////                        positionColor
-//                        (int) colorSpinner.getSelectedItem()
+//                        colorSpinner.getSelectedItemPosition()
 //                );
                 meetingApiService.createMeeting(meeting);
                 Intent intent = new Intent(AddReuActivity.this, MainActivity.class);
@@ -249,14 +247,14 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
             public void onTextChanged(CharSequence s, int start, int before, int count) { }
             @Override
             public void afterTextChanged(Editable s) {
-                saveButton.setEnabled(s.length() > 0);
+                //saveButton.setEnabled(s.length() > 0);
             }
         });
     }
 
     private void configureRoomSpinner() {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Salle_Maréu, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Salle_Maréu, R.layout.cutom_spinner_item);
+        adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
         roomSpinner.setAdapter(adapter);
         roomSpinner.setOnItemSelectedListener(this);
     }

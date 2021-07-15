@@ -14,19 +14,21 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:background="@color/bleuuu"
+        app:titleTextAppearance="@style/Toolbar.TitleText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/faButton"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:elevation="4dp"
+        app:fabCustomSize="75dp"
         android:src="@drawable/ic_baseline_add_100"
         app:backgroundTint="#CE0A24"
         app:layout_constraintBottom_toBottomOf="parent"

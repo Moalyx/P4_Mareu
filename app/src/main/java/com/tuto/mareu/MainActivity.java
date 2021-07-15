@@ -18,6 +18,9 @@ import com.tuto.mareu.di.DI;
 import com.tuto.mareu.model.Meeting;
 import com.tuto.mareu.service.MeetingApiService;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -62,9 +65,46 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Toast.makeText(this, R.string.filter, Toast.LENGTH_SHORT).show();
+
+        switch (item.getItemId()) {
+            case R.id.menu_activity_filter_room_filter:
+                Toast.makeText(this, "tri par salle", Toast.LENGTH_SHORT).show();
+//                Collections.sort(meetings, new Comparator<Meeting>() {
+//                    public int compare(Meeting o1, Meeting o2) {
+//                        if (o1.getRoom() == null || o2.getRoom() == null)
+//                            return 0;
+//                        myMeetingRecyclerViewAdapter.notifyDataSetChanged();
+//                        return o1.getRoom().compareTo(o2.getRoom());
+//                    }});
+                DateFormat f = new SimpleDateFormat("dd/MM/yyyy '@'hh:mm a");
+                    Collections.sort(meetings, Meeting.MeetingRoomAscendingComparator);
+                myMeetingRecyclerViewAdapter.notifyDataSetChanged();
+                return true;
+
+
+            case R.id.menu_activity_date_filter:
+                Toast.makeText(this, "tri par date", Toast.LENGTH_SHORT).show();
+//                Collections.sort(meetings, new Comparator<Meeting>() {
+//                                public int compare(Meeting o1, Meeting o2) {
+//                                    if (o1.getDate() == null || o2.getDate() == null)
+//                                        return 0;
+//                                    myMeetingRecyclerViewAdapter.notifyDataSetChanged();
+//                                    return o1.getDate().compareTo(o2.getDate());
+//                                }
+//                });
+
+                Collections.sort(meetings, Meeting.MeetingDateAscendingComparator);
+                myMeetingRecyclerViewAdapter.notifyDataSetChanged();
+                return true;
+
+
+
+    }
         return true;
     }
+
+
+
 
     private void configureToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
