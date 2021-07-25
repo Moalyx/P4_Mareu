@@ -7,4 +7,25 @@
     <dimen name="circle_width">41dp</dimen>
     <dimen name="delete_height">24dp</dimen>
     <dimen name="delete_width">24dp</dimen>
+    <dimen name="color_item_width">100dp</dimen>
+    <dimen name="color_item_height">100dp</dimen>
+
+
+    <!-- TextViews -->
+    <dimen name="organiseMeeting"></dimen>
+    <dimen name="selectDate"></dimen>
+    <dimen name="datePickerButton"></dimen>
+    <dimen name="selectTime"></dimen>
+    <dimen name="timePickerButton"></dimen>
+    <dimen name="selectRoom"></dimen>
+    <dimen name="roomSpinner"></dimen>
+    <dimen name="selecParticipants"></dimen>
+    <dimen name="participantSpinner"></dimen>
+    <dimen name="selectColor"></dimen>
+    <dimen name="colorSpinner"></dimen>
+    <dimen name="selectSubject"></dimen>
+    <dimen name="saveButton"></dimen>
+    <dimen name="subject_input"></dimen>
+    <dimen name="custom_room_spinner"></dimen>
+    <dimen name="custom_dropdown"></dimen>
 </resources>

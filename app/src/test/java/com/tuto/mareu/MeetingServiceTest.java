@@ -28,7 +28,7 @@ import static org.junit.Assert.assertTrue;
 public class MeetingServiceTest {
 
     private MeetingApiService service;
-
+    private MyMeetingRecyclerViewAdapter adapter;
 
 
     @Before
@@ -44,18 +44,31 @@ public class MeetingServiceTest {
     }
 
     @Test
-    public void createMeetingWithSuccess(){
-        Meeting meeting = new Meeting("salle 1", "Stratégie",  DUMMY_PARTICIPANTS , "18h30", "01/08/21", 2);
+    public void createMeetingWithSuccess() {
+        Meeting meeting = new Meeting("salle 1", "Stratégie", DUMMY_PARTICIPANTS, "18h30", "01/08/21", 2);
         service.createMeeting(meeting);
         assertTrue(service.getMeetings().contains(meeting));
     }
 
     @Test
-    public void deleteMeetingWithSuccess(){
-        Meeting meeting = new Meeting("salle 1", "Stratégie",  DUMMY_PARTICIPANTS , "18h30", "01/08/21", 2);
+    public void deleteMeetingWithSuccess() {
+        Meeting meeting = new Meeting("salle 1", "Stratégie", DUMMY_PARTICIPANTS, "18h30", "01/08/21", 2);
         service.createMeeting(meeting);
         Meeting meetingToDelete = service.getMeetings().get(0);
         service.deleteMeeting(meetingToDelete);
         assertFalse(service.getMeetings().contains(meetingToDelete));
     }
+
+     @Test
+    public void getMeetingFilteredByDateWithSuccess(){
+        List<Meeting> meetings = service.getMeetingsByDate("11/7/2021");
+        assertEquals(meetings.size(), 2);
+    }
+
+    @Test
+    public void getMeetingFilteredByRoomWithSuccess(){
+        List<Meeting> meetings = service.getMeetingsByRoom("Salle 1");
+        assertFalse(meetings.isEmpty());
+    }
+
 }

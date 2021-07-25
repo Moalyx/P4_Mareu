@@ -1,12 +1,13 @@
-package com.tuto.mareu;
+package com.tuto.mareu.UI;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,8 +19,10 @@ import android.widget.TimePicker;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.textfield.TextInputLayout;
+import com.tuto.mareu.R;
 import com.tuto.mareu.di.DI;
 import com.tuto.mareu.model.Meeting;
 import com.tuto.mareu.service.MeetingApiService;
@@ -45,12 +48,8 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
     boolean[] selectedParticipants;
     private String[] participantsArray;
     private TextInputLayout textInputSubject;
-    private ColorSpinnerAdapter adapter;
-    int colorMeeting;
-    int colorList[] = {R.drawable.ic_circle_blue, R.drawable.ic_circle_green, R.drawable.ic_circle_pink, R.drawable.ic_circle_yellow, R.drawable.ic_circle};
-    DatePickerDialog.OnDateSetListener setDateListener;
-    TimePickerDialog.OnTimeSetListener setTimeListener;
-
+    private int colorMeeting;
+    private final int[] colorList = {R.drawable.ic_circle_blue, R.drawable.ic_circle_green, R.drawable.ic_circle_pink, R.drawable.ic_circle_yellow, R.drawable.ic_circle};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +57,18 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
         setContentView(R.layout.activity_add_reu);
         meetingApiService = DI.getNeighbourApiService();
 
+        initViews();
+        configureToolbar();
+        configureDatePicker();
+        configureTimePicker();
+        configureRoomSpinner();
+        configureParticipantSpinner();
+        configureColorSpinner();
+        initList();
+        addMeeting();
+    }
+
+    private void initViews() {
         dateButton = findViewById(R.id.datePickerButton);
         timeButton = findViewById(R.id.timePickerButton);
         roomSpinner = findViewById(R.id.roomSpinner);
@@ -66,14 +77,24 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
         participantSpinner = findViewById(R.id.participantSpinner);
         participantsArray = getResources().getStringArray(R.array.Participants);
         textInputSubject = findViewById(R.id.sbuject_text_input);
+    }
 
-        configureDatePicker();
-        configureTimePicker();
-        configureRoomSpinner();
-        configureParticipantSpinner();
-        configureColorSpinner();
-        initList();
-        addMeeting();
+    private void configureToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar2);
+        toolbar.setTitleTextColor(Color.WHITE);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) // Press Back Icon
+        {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void configureParticipantSpinner() {
@@ -132,7 +153,6 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
 
-
     private void configureDatePicker() {
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
@@ -176,7 +196,7 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
         });
     }
 
-    public int selectedColor (int position){
+    public int selectedColor(int position) {
         colorMeeting = (int) colorSpinner.getSelectedItemPosition();
         switch (colorSpinner.getSelectedItemPosition()) {
 
@@ -208,43 +228,40 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
 
     private void addMeeting() {
 
-        //int positionColor = colorMeeting;
         saveButton.setEnabled(true);
         selectedColor(colorMeeting);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String room = roomSpinner.getSelectedItem().toString();
-                String subject = textInputSubject.getEditText().getText().toString();
-                List<String> participants = participantList;
-                String time = timeButton.getText().toString();
-                String date = dateButton.getText().toString();
-                int color = selectedColor(colorSpinner.getSelectedItemPosition());
-
-                Meeting meeting = new Meeting(room, subject, participants, time, date, color);
-//                Meeting meeting = new Meeting(
-//                        roomSpinner.getSelectedItem().toString(),
-//                        textInputSubject.getEditText().getText().toString(),
-//                        participantList,
-//                        timeButton.getText().toString(),
-//                        dateButton.getText().toString(),
-////                        positionColor
-//                        colorSpinner.getSelectedItemPosition()
-//                );
-                meetingApiService.createMeeting(meeting);
-                Intent intent = new Intent(AddReuActivity.this, MainActivity.class);
-                startActivity(intent);
+                initNewMeeting();
+                finish();
             }
         });
+    }
+
+    void initNewMeeting(){
+        String room = roomSpinner.getSelectedItem().toString();
+        String subject = textInputSubject.getEditText().getText().toString();
+        List<String> participants = participantList;
+        String time = timeButton.getText().toString();
+        String date = dateButton.getText().toString();
+        int color = selectedColor(colorSpinner.getSelectedItemPosition());
+        Meeting meeting = new Meeting(room, subject, participants, time, date, color);
+        meetingApiService.createMeeting(meeting);
+
     }
 
     private void initList() {
 
         textInputSubject.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
             @Override
             public void afterTextChanged(Editable s) {
                 //saveButton.setEnabled(s.length() > 0);
@@ -253,7 +270,7 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
     private void configureRoomSpinner() {
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Salle_Maréu, R.layout.cutom_spinner_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.room_array, R.layout.cutom_spinner_item);
         adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown);
         roomSpinner.setAdapter(adapter);
         roomSpinner.setOnItemSelectedListener(this);
@@ -270,7 +287,7 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
     private void configureColorSpinner() {
-        adapter = new ColorSpinnerAdapter(AddReuActivity.this, colorList);
+        ColorSpinnerAdapter adapter = new ColorSpinnerAdapter(AddReuActivity.this, colorList);
         colorSpinner.setAdapter(adapter);
     }
 

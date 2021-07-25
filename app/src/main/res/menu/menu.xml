@@ -1,26 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
 
     <item
-        android:id="@+id/menu_activity_filter_room_filter"
-        app:titleTextColor="#FFFFFF"
-        android:icon="@drawable/ic_action_filtre_test"
-        app:showAsAction="always"
-        android:title="filtrer"
-        tools:ignore="AppCompatResource">
+        android:id="@+id/filter_button"
+        android:icon="@drawable/ic_filter"
+        android:title="@string/filer_by_room"
+        app:showAsAction="ifRoom">
+
+        <menu>
+
+            <item
+                android:id="@+id/action_room"
+                android:title="@string/filer_by_room"
+                app:showAsAction="never">
+                <menu>
+                    <item
+                        android:id="@+id/room1"
+                        android:title="@string/room1"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/room2"
+                        android:title="@string/room2"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/room3"
+                        android:title="@string/room3"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/room4"
+                        android:title="@string/room4"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/room5"
+                        android:title="@string/room5"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/room6"
+                        android:title="@string/room6"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/room7"
+                        android:title="@string/room7"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/room8"
+                        android:title="@string/room8"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/room9"
+                        android:title="@string/room9"
+                        app:showAsAction="never" />
+                    <item
+                        android:id="@+id/room10"
+                        android:title="@string/room10"
+                        app:showAsAction="never" />
+                </menu>
+
+            </item>
+
+            <item
+                android:id="@+id/action_date"
+                android:title="@string/filter_by_date"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/action_reset"
+                android:title="@string/reset"
+                app:showAsAction="never" />
+
+        </menu>
+
     </item>
 
-    <item
-        android:id="@+id/menu_activity_date_filter"
-        app:titleTextColor="#FFFFFF"
-        android:icon="@drawable/ic_baseline_access_time_24"
-        app:showAsAction="always"
-        android:title="filtrer"
-        tools:ignore="AppCompatResource">
-    </item>
 
 </menu>
 

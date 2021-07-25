@@ -76,35 +76,20 @@ public class Meeting {
     public String toString() {
         return participants.toString();
     }
-    
-    public static Comparator<Meeting> MeetingDateAscendingComparator = new Comparator<Meeting>() {
+
+    public static Comparator<Meeting> MeetingDateComparator = new Comparator<Meeting>() {
         @Override
         public int compare(Meeting o1, Meeting o2) {
             return o1.getTime().compareTo(o2.getTime());
         }
     };
 
-    public static Comparator<Meeting> MeetingDateDescendingComparator = new Comparator<Meeting>() {
-        @Override
-        public int compare(Meeting o1, Meeting o2) {
-            return o2.getTime().compareTo(o1.getTime());
-        }
-    };
-
-    public static Comparator<Meeting> MeetingRoomAscendingComparator = new Comparator<Meeting>() {
+    public static Comparator<Meeting> MeetingRoomComparator = new Comparator<Meeting>() {
         @Override
         public int compare(Meeting o1, Meeting o2) {
             return o1.getRoom().compareTo(o2.getRoom());
         }
     };
-
-    public static Comparator<Meeting> MeetingRoomDescendingComparator = new Comparator<Meeting>() {
-        @Override
-        public int compare(Meeting o1, Meeting o2) {
-            return o2.getRoom().compareTo(o1.getRoom());
-        }
-    };
-
 
     @Override
     public boolean equals(Object o) {

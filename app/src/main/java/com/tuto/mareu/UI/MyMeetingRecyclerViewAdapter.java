@@ -1,5 +1,6 @@
-package com.tuto.mareu;
+package com.tuto.mareu.UI;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,19 +10,20 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.tuto.mareu.R;
 import com.tuto.mareu.model.Meeting;
 
 import java.util.List;
 
 public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeetingRecyclerViewAdapter.ViewHolder> {
 
+    private final List<Meeting> meetings;
+    private final Context context;
 
-    private List<Meeting> meetings;
-
-    public MyMeetingRecyclerViewAdapter(List<Meeting> meetings) {
+    public MyMeetingRecyclerViewAdapter(List<Meeting> meetings, Context context) {
         this.meetings = meetings;
+        this.context = context;
     }
-
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -33,7 +35,8 @@ public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeeting
     @Override
     public void onBindViewHolder(MyMeetingRecyclerViewAdapter.ViewHolder holder, int position) {
         Meeting meeting = meetings.get(position);
-        holder.meeting.setText(meeting.getRoom() + " - " + meeting.getSubject() + " - " + meeting.getDate() + " - " + meeting.getTime());
+        String description = context.getString(R.string.description, meeting.getSubject(), meeting.getTime(), meeting.getRoom());
+        holder.meeting.setText(description);
         holder.participants.setText(meeting.toString().replace("[", "").replace("]", ""));
         holder.circle.setImageResource(meeting.getImage());
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
@@ -41,8 +44,7 @@ public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeeting
             public void onClick(View v) {
                 meetings.remove(meeting);
                 notifyItemRemoved(position);
-                notifyItemRangeChanged(position, meetings.size());
-
+                //notifyItemRangeChanged(position, meetings.size());
             }
         });
     }

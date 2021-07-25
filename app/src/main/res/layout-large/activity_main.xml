@@ -9,17 +9,17 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="horizontal"
-    tools:context=".MainActivity">
+    tools:context=".UI.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:background="@color/bleuuu"
-        app:titleTextAppearance="@style/Toolbar.TitleText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextAppearance="@style/Toolbar.TitleText" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/faButton"
@@ -28,9 +28,9 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:elevation="4dp"
-        app:fabCustomSize="75dp"
-        android:src="@drawable/ic_baseline_add_100"
+        android:foreground="@drawable/ic_baseline_add_100"
         app:backgroundTint="#CE0A24"
+        app:fabCustomSize="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -43,9 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        tools:context=".MainActivity" />
-
-
+        tools:context=".UI.MainActivity" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

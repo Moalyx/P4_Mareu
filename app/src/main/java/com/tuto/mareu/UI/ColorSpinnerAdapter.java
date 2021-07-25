@@ -1,4 +1,4 @@
-package com.tuto.mareu;
+package com.tuto.mareu.UI;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+
+import com.tuto.mareu.R;
 
 public class ColorSpinnerAdapter extends BaseAdapter {
 

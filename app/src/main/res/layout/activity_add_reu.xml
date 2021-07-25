@@ -6,10 +6,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AddReuActivity">
+        tools:context=".UI.AddReuActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar2"
+            app:theme="@style/ToolbarTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bleuuu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/organiseMeeting"
@@ -22,7 +34,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/toolbar2" />
 
 
         <androidx.cardview.widget.CardView
@@ -336,6 +348,7 @@
                         android:inputType="text"
                         android:lines="1"
                         android:textColor="#000000"
+                        android:id="@+id/subject_typing"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/selectSubject" />

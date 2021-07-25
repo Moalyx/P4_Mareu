@@ -9,7 +9,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:orientation="horizontal"
-    tools:context=".MainActivity">
+    tools:context=".UI.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -24,8 +24,8 @@
         android:id="@+id/faButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:elevation="4dp"
         android:src="@drawable/ic_baseline_add_24"
         app:backgroundTint="#CE0A24"
@@ -41,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        tools:context=".MainActivity" />
+        tools:context=".UI.MainActivity" />
 
 
 

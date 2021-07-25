@@ -25,7 +25,7 @@
     <dimen name="selectColor">40sp</dimen>
     <dimen name="colorSpinner">40sp</dimen>
     <dimen name="selectSubject">40sp</dimen>
-    <dimen name="saveButton">40sp</dimen>
+    <dimen name="saveButton">70sp</dimen>
     <dimen name="subject_input">40sp</dimen>
     <dimen name="custom_room_spinner">40sp</dimen>
     <dimen name="custom_dropdown">40sp</dimen>

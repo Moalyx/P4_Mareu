@@ -19,11 +19,11 @@ public class DummyMeetingGenerator {
 
     private List<Meeting> meetings = DummyMeetingGenerator.generateMeetings();
     public static List<Meeting> Dummy_MEETINGS = Arrays.asList(
-            new Meeting("Salle 1", "Combat", generateParticipants(), "15h50", "01/08/21", R.drawable.ic_circle),
-            new Meeting("Salle 2", "Training", generateParticipants(), "17h20", "11/08/21", R.drawable.ic_circle_blue),
-            new Meeting("Salle 3", "Stratégie", generateParticipants(), "12h00", "03/09/21", R.drawable.ic_circle_green),
-            new Meeting("Salle 4", "Méditation", generateParticipants(), "08h10", "24/10/21", R.drawable.ic_circle_pink),
-            new Meeting("Salle 5", "Dégustation", generateParticipants(), "20h30", "02/11/21", R.drawable.ic_circle_yellow)
+            new Meeting("Salle 1", "Combat", generateParticipants(), "15h50", "11/7/2021", R.drawable.ic_circle),
+            new Meeting("Salle 2", "Training", generateParticipants(), "17h20", "11/7/2021", R.drawable.ic_circle_blue),
+            new Meeting("Salle 3", "Stratégie", generateParticipants(), "12h00", "3/9/2021", R.drawable.ic_circle_green),
+            new Meeting("Salle 4", "Méditation", generateParticipants(), "08h10", "24/10/2021", R.drawable.ic_circle_pink),
+            new Meeting("Salle 5", "Dégustation", generateParticipants(), "20h30", "2/11/2021", R.drawable.ic_circle_yellow)
     );
 
     static List<Meeting> generateMeetings() {

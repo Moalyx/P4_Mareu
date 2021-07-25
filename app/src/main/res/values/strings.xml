@@ -5,18 +5,33 @@
     <string name="ok">ok</string>
     <string name="delete">Annuler</string>
     <string name="filter">filtrer</string>
+    <string name="filer_by_room">Filtrer par salle</string>
+    <string name="filter_by_date">Filtrer par date</string>
+    <string name="reset">Reset</string>
+    <string name="description">%1$s - %2$s - %3$s</string>
+    <string name="room1">Salle 1</string>
+    <string name="room2">Salle 2</string>
+    <string name="room3">Salle 3</string>
+    <string name="room4">Salle 4</string>
+    <string name="room5">Salle 5</string>
+    <string name="room6">Salle 6</string>
+    <string name="room7">Salle 7</string>
+    <string name="room8">Salle 8</string>
+    <string name="room9">Salle 9</string>
+    <string name="room10">Salle 10</string>
+    <string name="filtre">      </string>
 
-    <string-array name="Salle_Maréu">
-        <item>Salle 1</item>
-        <item>Salle 2</item>
-        <item>Salle 3</item>
-        <item>Salle 4</item>
-        <item>Salle 5</item>
-        <item>Salle 6</item>
-        <item>Salle 7</item>
-        <item>Salle 8</item>
-        <item>Salle 9</item>
-        <item>Salle 10</item>
+    <string-array name="room_array">
+        <item>@string/room1</item>
+        <item>@string/room2</item>
+        <item>@string/room3</item>
+        <item>@string/room4</item>
+        <item>@string/room5</item>
+        <item>@string/room6</item>
+        <item>@string/room7</item>
+        <item>@string/room8</item>
+        <item>@string/room9</item>
+        <item>@string/room10</item>
     </string-array>
 
     <string-array name="Participants">
