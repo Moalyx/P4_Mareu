@@ -18,6 +18,7 @@
             android:layout_height="wrap_content"
             android:background="@color/bleuuu"
             app:navigationIcon="@drawable/ic_back_arrow"
+            app:theme="@style/ToolbarTheme"
             app:titleTextAppearance="@style/Toolbar.TitleText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

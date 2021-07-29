@@ -1,5 +1,6 @@
 package com.tuto.mareu;
 
+import com.tuto.mareu.UI.MyMeetingRecyclerViewAdapter;
 import com.tuto.mareu.di.DI;
 import com.tuto.mareu.model.Meeting;
 import com.tuto.mareu.service.DummyMeetingGenerator;
@@ -14,6 +15,7 @@ import org.junit.runners.JUnit4;
 import java.util.List;
 
 import static com.tuto.mareu.service.DummyMeetingGenerator.DUMMY_PARTICIPANTS;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -29,7 +31,6 @@ public class MeetingServiceTest {
 
     private MeetingApiService service;
     private MyMeetingRecyclerViewAdapter adapter;
-
 
     @Before
     public void setup() {
@@ -59,16 +60,15 @@ public class MeetingServiceTest {
         assertFalse(service.getMeetings().contains(meetingToDelete));
     }
 
-     @Test
-    public void getMeetingFilteredByDateWithSuccess(){
+    @Test
+    public void getMeetingFilteredByDateWithSuccess() {
         List<Meeting> meetings = service.getMeetingsByDate("11/7/2021");
         assertEquals(meetings.size(), 2);
     }
 
     @Test
-    public void getMeetingFilteredByRoomWithSuccess(){
+    public void getMeetingFilteredByRoomWithSuccess() {
         List<Meeting> meetings = service.getMeetingsByRoom("Salle 1");
         assertFalse(meetings.isEmpty());
     }
-
 }

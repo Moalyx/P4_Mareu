@@ -11,14 +11,18 @@
         <item name="android:textSize">50sp</item>
     </style>
 
+    <style name="Toolbar.TitleText2" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">20sp</item>
+    </style>
+
     <style name="Base.Widget.AppCompat.Toolbar.Button.Navigation." parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:width">50dp</item>
         <item name="android:height">50dp</item>
     </style>
 
-    <style name="Theme.MyFancyTheme" parent="android:Theme.Holo">
-        <item name="android:homeAsUpIndicator">@drawable/ic_back_arrow</item>
-    </style>
+<!--    <style name="Theme.MyFancyTheme" parent="android:Theme.Holo">-->
+<!--        <item name="android:homeAsUpIndicator">@drawable/ic_back_arrow</item>-->
+<!--    </style>-->
 
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
         <!-- Customize color of navigation drawer icon and back arrow -->

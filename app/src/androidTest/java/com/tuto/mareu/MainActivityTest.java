@@ -182,5 +182,4 @@ public class MainActivityTest {
         onView(allOf(withId(R.id.meeting_recyclerview), isDisplayed()))
                 .check(withItemCount(newSize));
     }
-
 }

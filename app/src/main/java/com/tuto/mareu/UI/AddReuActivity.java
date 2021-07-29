@@ -29,7 +29,6 @@ import com.tuto.mareu.service.MeetingApiService;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
 import java.util.List;
 
 public class AddReuActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -112,7 +111,7 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
 
                         if (selected) {
                             participantsReu.add(position);
-                            Collections.sort(participantsReu);
+                            //Collections.sort(participantsReu);
                         } else {
                             participantsReu.remove(position);
                         }
@@ -128,12 +127,9 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
                         for (int j = 0; j < participantsReu.size(); j++) {
                             stringBuilder.append(participantsArray[participantsReu.get(j)]);
 
-                            participantList.add(participantsArray[participantsReu.get(j)]);
-
-
-//                            if (j != participantsReu.size() - 1) {
+                            participantList.add(participantsArray[j]);
                             stringBuilder.append(", ");
-//                            }
+
                         }
                         participantSpinner.setText(stringBuilder.toString());
                     }
@@ -143,13 +139,11 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
                         dialog.dismiss();
-
                     }
                 });
                 builder.show();
             }
         });
-
     }
 
 
@@ -168,7 +162,6 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
                         month = month + 1;
                         String date = day + "/" + month + "/" + year;
                         dateButton.setText(date);
-
                     }
                 }, year, month, day);
                 datePickerDialog.show();

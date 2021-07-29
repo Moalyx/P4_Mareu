@@ -44,7 +44,6 @@ public class MyMeetingRecyclerViewAdapter extends RecyclerView.Adapter<MyMeeting
             public void onClick(View v) {
                 meetings.remove(meeting);
                 notifyItemRemoved(position);
-                //notifyItemRangeChanged(position, meetings.size());
             }
         });
     }

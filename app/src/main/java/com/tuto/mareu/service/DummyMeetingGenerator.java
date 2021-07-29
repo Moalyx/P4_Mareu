@@ -18,7 +18,7 @@ public class DummyMeetingGenerator {
     }
 
     private List<Meeting> meetings = DummyMeetingGenerator.generateMeetings();
-    public static List<Meeting> Dummy_MEETINGS = Arrays.asList(
+    public static List<Meeting> DUMMY_MEETINGS = Arrays.asList(
             new Meeting("Salle 1", "Combat", generateParticipants(), "15h50", "11/7/2021", R.drawable.ic_circle),
             new Meeting("Salle 2", "Training", generateParticipants(), "17h20", "11/7/2021", R.drawable.ic_circle_blue),
             new Meeting("Salle 3", "Stratégie", generateParticipants(), "12h00", "3/9/2021", R.drawable.ic_circle_green),
@@ -27,6 +27,6 @@ public class DummyMeetingGenerator {
     );
 
     static List<Meeting> generateMeetings() {
-        return new ArrayList<>(Dummy_MEETINGS);
+        return new ArrayList<>(DUMMY_MEETINGS);
     }
 }

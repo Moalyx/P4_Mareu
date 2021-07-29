@@ -13,9 +13,11 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar2"
+            app:titleTextAppearance="@style/Toolbar.TitleText2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/bleuuu"
+            app:theme="@style/ToolbarTheme"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -248,7 +250,7 @@
             app:layout_constraintTop_toBottomOf="@id/organiseMeeting">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="195dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
@@ -258,6 +260,7 @@
                     android:layout_marginTop="16dp"
                     android:text="Sélectionnez une couleur:"
                     android:textColor="#FFFFFF"
+                    android:layout_marginHorizontal="4dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/cardView1"
@@ -356,16 +359,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="64dp"
+            android:background="@color/bleuuu"
             android:enabled="false"
             android:text="Ajouter"
             android:textColor="#FFFFFF"
             android:textSize="30dp"
             app:cornerRadius="20dp"
-            android:background="@color/bleuuu"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardView4" />
+            app:layout_constraintTop_toBottomOf="@id/cardView3" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
