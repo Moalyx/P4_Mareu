@@ -43,12 +43,12 @@
             android:layout_height="100dp"
             android:layout_marginHorizontal="4dp"
             android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toStartOf="@id/cardView2"
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/organiseMeeting">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="210dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -94,7 +94,8 @@
             android:layout_height="100dp"
             android:layout_marginHorizontal="4dp"
             android:layout_marginTop="32dp"
-            app:layout_constraintStart_toEndOf="@id/cardView1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/organiseMeeting">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -137,13 +138,14 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            app:cardBackgroundColor="@color/bleuuu"
             android:id="@+id/cardView3"
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:layout_marginHorizontal="4dp"
             android:layout_marginTop="32dp"
-            app:layout_constraintStart_toEndOf="@id/cardView2"
+            android:layout_marginEnd="4dp"
+            app:cardBackgroundColor="@color/bleuuu"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/organiseMeeting">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -186,13 +188,13 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            app:cardBackgroundColor="@color/bleuuu"
             android:id="@+id/cardView4"
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginStart="100dp"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/bleuuu"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardView3">
 
@@ -244,10 +246,10 @@
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:layout_marginHorizontal="4dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/cardView3"
-            app:layout_constraintTop_toBottomOf="@id/organiseMeeting">
+            app:layout_constraintTop_toBottomOf="@id/cardView1">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -296,15 +298,15 @@
             android:id="@+id/cardView6"
             android:layout_width="200dp"
             android:layout_height="100dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginStart="100dp"
+            android:layout_marginHorizontal="4dp"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/cardView4"
-            app:layout_constraintTop_toBottomOf="@id/cardView5">
+            android:layout_marginLeft="10dp"
+
+            app:layout_constraintTop_toBottomOf="@id/cardView3">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -359,7 +361,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="130dp"
             android:background="@color/bleuuu"
             android:enabled="false"
             android:text="Ajouter"

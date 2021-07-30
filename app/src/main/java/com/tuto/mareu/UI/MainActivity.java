@@ -11,12 +11,10 @@ import android.widget.DatePicker;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.tuto.mareu.R;
+import com.tuto.mareu.databinding.ActivityMainBinding;
 import com.tuto.mareu.di.DI;
 import com.tuto.mareu.model.Meeting;
 import com.tuto.mareu.service.MeetingApiService;
@@ -26,25 +24,30 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
+    private ActivityMainBinding binding;
     private MeetingApiService apiService;
     private List<Meeting> meetings;
-    private RecyclerView recyclerView;
     private MyMeetingRecyclerViewAdapter adapter;
-    private FloatingActionButton addMeetingButton;
     private DatePickerDialog datePickerDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        initViewBinding();
 
         apiService = DI.getNeighbourApiService();
-
-        initViews();
 
         configureToolbar();
 
         setAddMeetingButton();
+    }
+
+    private void initViewBinding(){
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        View view = binding.getRoot();
+        setContentView(view);
+
     }
 
     @Override
@@ -53,22 +56,16 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         initMeetingList();
     }
 
-    private void initViews() {
-        addMeetingButton = findViewById(R.id.faButton);
-        recyclerView = findViewById(R.id.meeting_recyclerview);
-    }
-
     private void configureToolbar() {
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitleTextColor(Color.WHITE);
-        setSupportActionBar(toolbar);
+        binding.toolbar.setTitleTextColor(Color.WHITE);
+        setSupportActionBar(binding.toolbar);
     }
 
     private void initMeetingList() {
         meetings = apiService.getMeetings();
         adapter = new MyMeetingRecyclerViewAdapter(meetings, this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.meetingRecyclerview.setAdapter(adapter);
+        binding.meetingRecyclerview.setLayoutManager(new LinearLayoutManager(this));
     }
 
     private void showDatePickerDialog() {
@@ -81,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     }
 
     private void setAddMeetingButton() {
-        addMeetingButton.setOnClickListener(new View.OnClickListener() {
+        binding.faButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AddReuActivity.class);
@@ -93,8 +90,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
     private void displayFilteredMeetings(String room) {
         List<Meeting> filteredListByRoom = apiService.getMeetingsByRoom(room);
         adapter = new MyMeetingRecyclerViewAdapter(filteredListByRoom, this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.meetingRecyclerview.setAdapter(adapter);
+        binding.meetingRecyclerview.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override
@@ -134,8 +131,8 @@ public class MainActivity extends AppCompatActivity implements DatePickerDialog.
         Toast.makeText(this,date,Toast.LENGTH_LONG).show();
         List<Meeting> filteredListByDate = apiService.getMeetingsByDate(date);
         adapter = new MyMeetingRecyclerViewAdapter(filteredListByDate, this);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        binding.meetingRecyclerview.setAdapter(adapter);
+        binding.meetingRecyclerview.setLayoutManager(new LinearLayoutManager(this));
 
     }
 }

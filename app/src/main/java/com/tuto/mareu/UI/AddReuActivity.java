@@ -16,6 +16,7 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,6 +30,7 @@ import com.tuto.mareu.service.MeetingApiService;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.List;
 
 public class AddReuActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -63,7 +65,7 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
         configureRoomSpinner();
         configureParticipantSpinner();
         configureColorSpinner();
-        initList();
+        configureSubject();
         addMeeting();
     }
 
@@ -111,7 +113,7 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
 
                         if (selected) {
                             participantsReu.add(position);
-                            //Collections.sort(participantsReu);
+                            Collections.sort(participantsReu);
                         } else {
                             participantsReu.remove(position);
                         }
@@ -127,7 +129,7 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
                         for (int j = 0; j < participantsReu.size(); j++) {
                             stringBuilder.append(participantsArray[participantsReu.get(j)]);
 
-                            participantList.add(participantsArray[j]);
+                            participantList.add(participantsArray[participantsReu.get(j)]);
                             stringBuilder.append(", ");
 
                         }
@@ -221,7 +223,7 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
 
     private void addMeeting() {
 
-        saveButton.setEnabled(true);
+        //saveButton.setEnabled(true);
         selectedColor(colorMeeting);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -244,7 +246,7 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
 
     }
 
-    private void initList() {
+    private void configureSubject() {
 
         textInputSubject.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
@@ -257,7 +259,7 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
 
             @Override
             public void afterTextChanged(Editable s) {
-                //saveButton.setEnabled(s.length() > 0);
+                saveButton.setEnabled(s.length() > 0);
             }
         });
     }
@@ -272,7 +274,7 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String selectedRoom = parent.getItemAtPosition(position).toString();
-        //Toast.makeText(parent.getContext(), selectedRoom, Toast.LENGTH_SHORT).show();
+        Toast.makeText(parent.getContext(), selectedRoom, Toast.LENGTH_SHORT).show();
     }
 
     @Override
