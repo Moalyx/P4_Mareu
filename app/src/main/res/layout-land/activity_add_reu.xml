@@ -13,14 +13,14 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar2"
-            app:titleTextAppearance="@style/Toolbar.TitleText2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/bleuuu"
-            app:theme="@style/ToolbarTheme"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:theme="@style/ToolbarTheme"
+            app:titleTextAppearance="@style/Toolbar.TitleText2" />
 
         <TextView
             android:id="@+id/organiseMeeting"
@@ -37,12 +37,13 @@
 
 
         <androidx.cardview.widget.CardView
-            app:cardBackgroundColor="@color/bleuuu"
             android:id="@+id/cardView1"
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:layout_marginHorizontal="4dp"
             android:layout_marginTop="32dp"
+            app:cardBackgroundColor="@color/bleuuu"
+            app:cardCornerRadius="10dp"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/organiseMeeting">
@@ -88,14 +89,15 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            app:cardBackgroundColor="@color/bleuuu"
             android:id="@+id/cardView2"
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:layout_marginHorizontal="4dp"
             android:layout_marginTop="32dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:cardBackgroundColor="@color/bleuuu"
+            app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/organiseMeeting">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -145,6 +147,7 @@
             android:layout_marginTop="32dp"
             android:layout_marginEnd="4dp"
             app:cardBackgroundColor="@color/bleuuu"
+            app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/organiseMeeting">
 
@@ -195,6 +198,7 @@
             android:layout_marginStart="4dp"
             android:layout_marginTop="16dp"
             app:cardBackgroundColor="@color/bleuuu"
+            app:cardCornerRadius="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardView3">
 
@@ -241,14 +245,15 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            app:cardBackgroundColor="@color/bleuuu"
             android:id="@+id/cardView5"
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:layout_marginHorizontal="4dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:cardBackgroundColor="@color/bleuuu"
+            app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardView1">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -259,10 +264,10 @@
                     android:id="@+id/selectColor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
                     android:layout_marginTop="16dp"
                     android:text="Sélectionnez une couleur:"
                     android:textColor="#FFFFFF"
-                    android:layout_marginHorizontal="4dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/cardView1"
@@ -294,14 +299,15 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            app:cardBackgroundColor="@color/bleuuu"
             android:id="@+id/cardView6"
             android:layout_width="200dp"
             android:layout_height="100dp"
             android:layout_marginHorizontal="4dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="@color/bleuuu"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
 
             app:layout_constraintTop_toBottomOf="@id/cardView3">
 
