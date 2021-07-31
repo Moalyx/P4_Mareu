@@ -105,7 +105,7 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(AddReuActivity.this);
                 builder.setTitle(R.string.list_of_participants);
-                builder.setCancelable(false);
+                builder.setCancelable(true);
 
                 builder.setMultiChoiceItems(participantsArray, selectedParticipants, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
@@ -141,6 +141,18 @@ public class AddReuActivity extends AppCompatActivity implements AdapterView.OnI
                     @Override
                     public void onClick(DialogInterface dialog, int i) {
                         dialog.dismiss();
+                    }
+                });
+
+                builder.setNeutralButton(R.string.clear, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int i) {
+
+                        for (int j = 0; j < selectedParticipants.length; j++){
+                            selectedParticipants[j]= false;
+                            participantsReu.clear();
+                            participantSpinner.setText("");
+                        }
                     }
                 });
                 builder.show();

@@ -3,6 +3,7 @@
 
     <string name="list_of_participants">liste des participants</string>
     <string name="ok">ok</string>
+    <string name="clear">Effacer</string>
     <string name="delete">Annuler</string>
     <string name="filter">filtrer</string>
     <string name="filer_by_room">Filtrer par salle</string>
